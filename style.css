@@ -108,11 +108,21 @@ body {
   cursor: pointer;
 }
 .faq-answer {
-  margin-top: 40px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
   line-height: 1.5;
   font-size: 16px;
   margin-bottom: 20px;
-  display: none;
+  transition: max-height 0.6s ease, opacity 0.6s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px; 
+  opacity: 1;
+}
+.faq-item.active .faq-question span {
+  transform: rotate(45deg); 
 }
  /* -------importance section ----------- */
 .importance {
@@ -415,6 +425,7 @@ footer {
   }
   .home-container h1 {
     font-size: 2rem;
+    font-weight: bold;
     margin-bottom: 20px;
   }
   .home-container p {
@@ -442,11 +453,13 @@ footer {
   }
   .faq-left h2{
     font-size: 20px;
+    font-weight: bold;
     text-align: center;
     margin-bottom: 30px;
   }
   .faq-question h3{
     font-size: 20px;
+    font-weight: bold;
   }
   .faq-answer p{
     font-size: 12px;
